@@ -2,4 +2,4 @@ pandas
 numpy
 streamlit
 openpyxl
-streamlitauthenticator
+streamlit_authenticator
