@@ -3,4 +3,3 @@ numpy
 streamlit
 openpyxl
 streamlit_authenticator
-yaml
