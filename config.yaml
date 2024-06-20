@@ -6,21 +6,21 @@ credentials:
   usernames:
     kame:
       email: ishigame@ykaa.jp
-      name: Takashi Ishigame
+      name: TakashiIshigame
       password: $2b$12$KgBHVo4I7libn.eFOyoeme9wsuOov7i0S82/vm7VgmaNv7CSI1rna
     katayama:
       email: katayama@ykaa.jp
-      name: Yoshiki Katayama
+      name: YoshikiKatayama
       password: $2b$12$7xUALo1d5OPHqIkh9BqRQuuByn.kMVm4UUHvL8jdJGJQC.nnaT3Ci
     kikuchi:
       email: kikuchi2@ykaa.jp
-      name: Yoshiharu Kikuchi
+      name: YoshiharuKikuchi
       password: $2b$12$Q3IibrIDo4irTFF4dH3JzeD/YTmK1m44udDuncxQdk5UxqpU/Eiea
     kumagai:
       email: kumagai@ykaa.jp
-      name: Hayato Kumagai
+      name: HayatoKumagai
       password: $2b$12$vEf7ba3pgrCdMXn8SfOQqOoc7YTVKEvIYArLEBsyEFYzbw3nh4en6
     yuko:
       email: yuko@ykaa.jp
-      name: Yuko Kikuchi
+      name: YukoKikuchi
       password: $2b$12$JKkwpmQrcEbVbrts2.UVyeQ59uB6jgg6YWQ.d22iqCYxHE4NGnzZe
