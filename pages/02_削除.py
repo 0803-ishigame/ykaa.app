@@ -32,11 +32,6 @@ if select_df.empty == True:st.error("データがありません")
 else : st.dataframe(select_df, width=data_width)
 
 if st.button("削除"):
-<<<<<<< HEAD
     df = df.drop(df[(df["使用物件"] == h_select) & (df["使用箇所"] == w_select) & (df["使用部位"] == w_2_select)].index, inplace=False)
     df.to_excel("仕上げDB.xlsx", index=False)
-=======
-    df.drop(df[(df["使用物件"] == h_select) & (df["使用箇所"] == w_select) & (df["使用部位"] == w_2_select)].index, inplace=False)
-    df.to_excel("仕上げDB.xlsx", index=False)
-    st.write("success")
->>>>>>> 0f4deaa8114b769b0b76f7d9d5d750464006a1a3
+    st.succes('成功しました')
