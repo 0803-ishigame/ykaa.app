@@ -1,4 +1,8 @@
 pandas
 numpy
 streamlit
+<<<<<<< HEAD
 openpyxl
+=======
+openpyxl
+>>>>>>> 3ebd99f77b0f2b0bfbbd0bcc666bfb9fa22ad7c6
