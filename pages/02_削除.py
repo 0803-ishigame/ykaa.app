@@ -33,5 +33,5 @@ else : st.dataframe(select_df, width=data_width)
 
 if st.button("削除"):
     df.drop(df[(df["使用物件"] == h_select) & (df["使用箇所"] == w_select) & (df["使用部位"] == w_2_select)].index, inplace=False)
-    df.to_excel("../仕上げDB.xlsx", index=False)
+    df.to_excel("仕上げDB.xlsx", index=False)
     st.write("success")
