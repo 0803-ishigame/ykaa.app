@@ -6,7 +6,7 @@ st.set_page_config(
     page_title="新規作成",
 )
 
-df = pd.read_excel("./data/仕上げDB.xlsx")
+df = pd.read_excel("仕上げDB.xlsx")
 st.title("新規作成")
 house = st.text_input("使用物件")
 col1, col2 = st.columns(2)

@@ -5,13 +5,13 @@ import numpy as np
 def update(df, house, where, where2, company, goods_name, goods_number, goods_color, etc):
     df_new = pd.DataFrame({"使用物件": [house], "使用箇所":[where], "使用部位":[where2], "メーカー":[company], "商品名":[goods_name], "型番":[goods_number], "色番号":[goods_color], "備考":[etc]})
     df = pd.concat([df, df_new])
-    df.to_excel("./data/仕上げDB.xlsx",index=False)
+    df.to_excel("仕上げDB.xlsx",index=False)
     print(df)
 
 
 st.set_page_config(page_title="YKAA", layout="wide")
 
-df = pd.read_excel("./data/仕上げDB.xlsx")
+df = pd.read_excel("仕上げDB.xlsx")
 house_list = []
 where_list = []
 where2_list = []
@@ -51,5 +51,5 @@ st.button("編集", on_click= update(df, house, where, where2, company, goods_na
                 
 if st.button("キャンセル"):
     df = pd.concat([df, df_select])
-    df.to_excel("./data/仕上げDB.xlsx",index=False)
+    df.to_excel("仕上げDB.xlsx",index=False)
     print(df)

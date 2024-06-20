@@ -18,7 +18,7 @@ data_width = 1500
 
 house_list = ["指定なし"]
 where_list = ["指定なし"]
-df = pd.read_excel("./data/仕上げDB.xlsx")
+df = pd.read_excel("仕上げDB.xlsx")
 df = df.fillna("ー")
 df.index = df.index + 1
 h_ar = df['使用物件'].unique()
