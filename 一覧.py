@@ -13,7 +13,10 @@ from io import BytesIO
 #         else: suc_state = 1
 # if suc_state == 0:
 #     log_state =3
-
+st.set_page_config(
+    page_title="YKAA",
+    layout="wide",
+)
 ##実行
 menu = ["一覧", "新規作成", "削除"]
 state = st.sidebar.selectbox("menu", menu)
