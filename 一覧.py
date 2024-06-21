@@ -6,6 +6,11 @@ import streamlit_authenticator as stauth
 import yaml
 from yaml.loader import SafeLoader
 
+st.set_page_config(
+    page_title="YKAA",
+    layout="wide",
+)
+
 ## ユーザー設定読み込み
 yaml_path = "config.yaml"
 
