@@ -1,5 +1,6 @@
 pandas
 numpy
-streamlit
+streamlit ==1.35.0
 openpyxl
-streamlit_authenticator
+streamlit-authenticator  == 0.3.2
+PyYAML
