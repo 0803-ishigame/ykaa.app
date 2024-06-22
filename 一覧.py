@@ -9,6 +9,8 @@ from PIL import Image
 import openpyxl
 from openpyxl.styles import Font
 import datetime
+import glob
+import os
 
 icon = Image.open("company_icon.png")
 home_img = Image.open("home.jpg")
@@ -223,8 +225,81 @@ if st.session_state["authentication_status"]:
             add_data()
 
     if state == "仕様建材一覧":
-
-        st.write("開発中")
+        menu_sub = ["一覧", "新規作成", "編集"]
+        state_sub = st.sidebar.selectbox("menu", menu_sub)
+        if state_sub == "一覧":
+            data_width = 1500
+            com_list = ["指定なし"]
+            goods_list = ["指定なし"]
+            df_list = pd.read_excel('建材DB.xlsx')
+            df_list = df_list.fillna("ー")
+            com_l = df_list["メーカー"].unique()
+            for i in range(len(com_l)):
+                com_list.append(com_l[i])
+            col_1, col_2, col_3 = st.columns(3)
+            c_select = col_1.selectbox("メーカー", com_list)
+            df_list_select = df_list[df_list["メーカー"] == c_select]
+            goods_l = df_list_select["商品名"].unique()
+            for i in range(len(goods_l)):
+                goods_list.append(goods_l[i])
+            g_select = col_2.selectbox("商品名", goods_list)
+            df_list.index = df_list.index + 1
+            if c_select == "指定なし" and g_select == "指定なし":
+                st.dataframe(df_list, width=data_width)
+                select_df = df_list
+            elif c_select == "指定なし":
+                select_df = df_list[df_list["商品名"] == g_select]
+                select_df.index = np.arange(1, len(select_df)+1)
+                st.dataframe(select_df, width=data_width)
+            elif g_select == "指定なし":
+                select_df = df_list[df_list["メーカー"] == c_select]
+                select_df.index = np.arange(1, len(select_df)+1)
+                st.dataframe(select_df, width=data_width)
+            else:
+                select_df = df_list[(df_list["メーカー"] == c_select) & (df_list["商品名"] == g_select)]
+                select_df.index = np.arange(1, len(select_df)+1)
+                st.dataframe(select_df, width=data_width)
+        if state_sub == "新規作成":
+            com_list = ["新規メーカー"]    
+            df_goods = pd.read_excel("建材DB.xlsx")
+            df_com = pd.read_excel("メーカーDB.xlsx")
+            com_l = df_com["メーカー"].unique()
+            for i in range(len(com_l)):
+                com_list.append(com_l[i])
+            st.title("新規作成")
+            col1, col2, col3 = st.columns(3)
+            company = col1.selectbox("メーカー", com_list)
+            if company == "新規メーカー":
+                company = col2.text_input("新規メーカー名")
+                dictionary = col2.checkbox("カタログ")
+                if dictionary: col3.number_input("発行年数", 2024)
+            col_1, col_2, col_3 = st.columns(3)
+            goods_name = col_1.text_input("商品名")
+            goods_namber = col_2.text_input("型番")
+            goods_color = col_3.text_input("色番号")
+            col__1, col__2 = st.columns(2)
+            sample = col__1.checkbox("サンプル")
+            if sample:
+                sample_state = '◯'
+                sample_photo_path = st.file_uploader("サンプル写真", type=['.jpeg', '.png'], accept_multiple_files=False)
+                if sample_photo_path != None:
+                    sample_img = Image.open(sample_photo_path)
+            else: sample_state = '☓'
+            
+            etc = st.text_input("備考")
+            if st.button("新規作成"):
+                if company not in [f for f in os.listdir("./photo") if os.path.isdir(os.path.join("./photo", f))]:
+                    os.mkdir(f"./photo/{company}")
+                if sample_img != None:
+                    file_name = f"{goods_name}_{goods_namber}_{goods_color}.jpeg"
+                    sample_img.save(f"./photo/{company}/{file_name}")
+                df_new = pd.DataFrame({"メーカー":[company], "商品名":[goods_name], "型番":[goods_namber], "色番号":[goods_color], "サンプル":[sample_state] ,"備考":[etc]})
+                df_new = df_new.fillna("ー")
+                df_goods = pd.concat([df_goods, df_new])
+                df_goods.to_excel("建材DB.xlsx",index=False)
+                result = Image.open(f"./photo/{company}/{file_name}")
+                st.image(result, width=200)
+                st.success("成功しました")
 
 
 
