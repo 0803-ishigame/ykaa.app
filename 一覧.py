@@ -288,8 +288,6 @@ if st.session_state["authentication_status"]:
             
             etc = st.text_input("備考")
             if st.button("新規作成"):
-                if "photo" not in [f for f in os.listdir("./photo") if os.path.isdir(os.path.join("./photo", f))]:
-                    os.mkdir(f"./photo")
                 if company not in [f for f in os.listdir("./photo") if os.path.isdir(os.path.join("./photo", f))]:
                     os.mkdir(f"./photo/{company}")
                 if sample_img != None:
