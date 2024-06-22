@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 cookie:
   expiry_days: 30
   key: some_signature_key
@@ -29,35 +28,3 @@ credentials:
       email: yuko@ykaa.jp
       name: Yuko Kikuchi
       password: $2b$12$9w6R4ssVpTttIgE80KjMzO4wthyWh9BW97GHb5raXsfvb5Ynb49NC
-=======
-cookie:
-  expiry_days: 30
-  key: some_signature_key
-  name: some_cookie_name
-credentials:
-  usernames:
-    kame:
-      email: ishigame@ykaa.jp
-      name: Takashi Ishigame
-      password: $2b$12$kejB/yJt1J7ZSaACJDdVDODNJr9/nUV/G3CkZfKXZ1r2wbXJhi5Ve
-    katayama:
-      email: katayama@ykaa.jp
-      name: Yoshiki Katayama
-      password: $2b$12$465JMuG6Xk8l4LHI2e1uHO2ym2lOANDDg1682ZWmQiIqakOmGqKXO
-    kikuchi:
-      email: kikuchi2@ykaa.jp
-      name: Yoshiharu Kikuchi
-      password: $2b$12$fPNeBEkTsh4hEpc2M2xy9.O14VENjdpKgln5zdU0AFRM71kQ7VzuK
-    kumagai:
-      email: kumagai@ykaa.jp
-      name: Hayato Kumagai
-      password: $2b$12$Tl/yPi4s4RNvWnJ.9VArZeIOFQP8sqkIIw6SKvz8SG6vCQJqhohxS
-    okazaki:
-      email: okazaki@ykaa.jp
-      name: Masaki Okazaki
-      password: $2b$12$0toDfrlKQh7y2HLzSN8R0.//cdhQ6kZqTPeHl0fM3NxGIAiJ2aIB2
-    yuko:
-      email: yuko@ykaa.jp
-      name: Yuko Kikuchi
-      password: $2b$12$9w6R4ssVpTttIgE80KjMzO4wthyWh9BW97GHb5raXsfvb5Ynb49NC
->>>>>>> a6b02147492610e50a5308080847905830ae9b2f
